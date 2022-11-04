@@ -1,0 +1,26 @@
+﻿<Window x:Class="PW9_02_02_ArrayDifSort.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PW9_02_02_ArrayDifSort"
+        mc:Ignorable="d"
+        Title="Сортировка массива" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Создать"/>
+            <MenuItem Header="Заполнить"/>
+            <MenuItem Header="Сортировка (1 способ)">
+                <MenuItem Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений"/>
+                <MenuItem Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк"/>
+            </MenuItem>
+            <MenuItem Header="Сортировка (2 способ)">
+                <MenuItem Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений"/>
+                <MenuItem Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк"/>
+            </MenuItem>
+        </Menu>
+        <GroupBox Header="Двумерный массив">
+            <DataGrid x:Name="DataGridArray"/>
+        </GroupBox>
+    </DockPanel>
+</Window>
