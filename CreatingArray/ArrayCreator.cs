@@ -30,12 +30,12 @@ namespace CreatingArray
         /// <param name="n"></param>
         /// <param name="m"></param>
         /// <returns></returns>
-        public static int[,] CreateArray(int n, int m)
+        public static double[,] CreateArray(int n, int m)
         {
-            int[,] arr = new int[n, m];
+            double[,] arr = new double[n, m];
             return arr;
         }
-        public static int[,] CreateArray(int n, int m, Range range)
+        public static double[,] CreateArray(int n, int m, Range range)
         {
             var arr = CreateArray(n, m);
             Random rnd = new Random();

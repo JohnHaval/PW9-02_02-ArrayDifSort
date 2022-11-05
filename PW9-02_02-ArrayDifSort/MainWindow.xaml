@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PW9_02_02_ArrayDifSort"
         mc:Ignorable="d"
-        Title="Сортировка массива" Height="450" Width="800">
+        Title="Сортировка массива" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Создать"/>

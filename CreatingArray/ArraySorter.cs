@@ -20,39 +20,42 @@ namespace CreatingArray
                 Value = value;
             }
         }
-
+        //Правился при тестировании 
         public static double[,] FirstWaySortToUpRowElements(double[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
             {
-                TemporaryValue temporaryValue = new TemporaryValue(i, 0, arr[i, 0]);
-                for (int j = 0; j < arr.GetLength(1); j++)
+                for (int jT = 0; jT < arr.GetLength(1) - 1; jT++)
                 {
-                    if (temporaryValue.Value > arr[i, j])
+                    TemporaryValue temporaryValue = new TemporaryValue(i, jT, arr[i, jT]);
+                    for (int j = jT + 1; j < arr.GetLength(1); j++)
                     {
-
-                        arr[temporaryValue.FirstIndex, temporaryValue.SecondIndex] = arr[i, j];
-                        arr[i, j] = temporaryValue.Value;
-                        temporaryValue.FirstIndex = i;
-                        temporaryValue.SecondIndex = j;
+                        if (arr[i, jT] > arr[i, j])
+                        {
+                            temporaryValue.Value = arr[i, j];
+                            arr[i, j] = arr[temporaryValue.FirstIndex, temporaryValue.SecondIndex];
+                            arr[temporaryValue.FirstIndex, temporaryValue.SecondIndex] = temporaryValue.Value;
+                        }
                     }
                 }
             }
             return arr;
         }
+        //Исправлялся при тестировании
         public static double[,] SecondWaySortToUpRowElements(double[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
             {
-                int jTemporary = 0;
-                for (int j = 0; j < arr.GetLength(1); j++)
+                for (int jT = 0; jT < arr.GetLength(1) - 1; jT++)
                 {
-                    if (arr[i, jTemporary] > arr[i, j])
+                    for (int j = jT + 1; j < arr.GetLength(1); j++)
                     {
-                        double temporaryValue = arr[i, j];
-                        arr[i, j] = arr[i, jTemporary];
-                        arr[i, jTemporary] = temporaryValue;
-                        jTemporary = j;
+                        if (arr[i, jT] > arr[i, j])
+                        {
+                            double temporaryValue = arr[i, j];
+                            arr[i, j] = arr[i, jT];
+                            arr[i, jT] = temporaryValue;
+                        }
                     }
                 }
             }
@@ -72,47 +75,56 @@ namespace CreatingArray
             }
             return avgArr;
         }
+        //Исправлялся при тестировании
         public static double[,] FirstWaySortToUpRowsOnAvgElements(double[,] arr)
         {
             double[] avgArr = FindArrayAvgOfRows(arr);
-            TemporaryValue temporaryValue = new TemporaryValue(0, 0, avgArr[0]);
-            double[] newArrRow = new double[arr.GetLength(1)];
-            for (int i = 0; i < arr.GetLength(0); i++)
+            double tempVal;
+            for (int iT = 0; iT < arr.GetLength(0) - 1; iT++)
             {
-                if (temporaryValue.Value > avgArr[i])
-                {
-                    for (int j = 0; j < arr.GetLength(1); j++)
-                    {
-                        newArrRow[j] = arr[temporaryValue.FirstIndex, j];
-                        arr[temporaryValue.FirstIndex, j] = arr[i, j];
-                        arr[i, j] = newArrRow[j];
+                TemporaryValue temporaryValue = new TemporaryValue(iT, 0, avgArr[iT]);
+                for (int i = iT + 1; i < arr.GetLength(0); i++)
+                {                
+                    if (temporaryValue.Value > avgArr[i])
+                    {                        
+                        for (int j = 0; j < avgArr.Length; j++)
+                        {
+                            tempVal = arr[i, j];
+                            arr[i, j] = arr[iT, j];
+                            arr[iT, j] = tempVal;                            
+                        }
                         temporaryValue.Value = avgArr[i];
+                        tempVal = avgArr[iT];
+                        avgArr[iT] = avgArr[i];
+                        avgArr[i] = tempVal;
                     }
-                }
-            }
+                }                    
+            }            
             return arr;
         }
+        //Исправлялся при тестировании
         public static double[,] SecondWaySortToUpRowsOnAvgElements(double[,] arr)
         {
-            double[] avgArr = FindArrayAvgOfRows(arr);          
-            int currentIndex = 0;
-            for (int i = 0; i < avgArr.Length; i++)
-            {
-                if (avgArr[currentIndex] > avgArr[i])
+            double[] avgArr = FindArrayAvgOfRows(arr);
+            double tempVal;
+            for (int iT = 0; iT < arr.GetLength(0) - 1; iT++)
+            {                
+                for (int i = iT + 1; i < arr.GetLength(0); i++)
                 {
-                    double temporaryValue = avgArr[i];
-                    avgArr[i] = avgArr[currentIndex];
-                    avgArr[currentIndex] = temporaryValue;
-                    double[] newArrRow = new double[arr.GetLength(1)];
-                    for (int j = 0; j < arr.GetLength(1); j++)
+                    if (avgArr[iT] > avgArr[i])
                     {
-                        newArrRow[j] = arr[i, j];
-                        arr[i, j] = arr[currentIndex, j];
-                        arr[currentIndex, j] = newArrRow[j];
+                        for (int j = 0; j < avgArr.Length; j++)
+                        {
+                            tempVal = arr[i, j];
+                            arr[i, j] = arr[iT, j]; 
+                            arr[iT, j] = tempVal;
+                        }
+                        tempVal = avgArr[iT];
+                        avgArr[iT] = avgArr[i];
+                        avgArr[i] = tempVal;
                     }
-                    currentIndex = i;
                 }
-            }
+            }            
             return arr;
         }
     }
