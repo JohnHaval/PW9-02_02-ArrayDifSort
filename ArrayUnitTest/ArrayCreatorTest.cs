@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CreatingArray;
+﻿using CreatingArray;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ArrayUnitTest
 {
@@ -11,7 +11,7 @@ namespace ArrayUnitTest
         {
             double[,] arr0 = ArrayCreator.CreateArray(4, 4);
             TraceTransfer.ToTrace(arr0);
-            Assert.AreEqual(0, arr0[0,0]);
+            Assert.AreEqual(0, arr0[0, 0]);
         }
         [TestMethod]
         public void CreateArrayWithRandom()

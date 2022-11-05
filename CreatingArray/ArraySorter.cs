@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CreatingArray
+﻿namespace CreatingArray
 {
     public static class ArraySorter
     {
@@ -84,22 +78,22 @@ namespace CreatingArray
             {
                 TemporaryValue temporaryValue = new TemporaryValue(iT, 0, avgArr[iT]);
                 for (int i = iT + 1; i < arr.GetLength(0); i++)
-                {                
+                {
                     if (temporaryValue.Value > avgArr[i])
-                    {                        
+                    {
                         for (int j = 0; j < avgArr.Length; j++)
                         {
                             tempVal = arr[i, j];
                             arr[i, j] = arr[iT, j];
-                            arr[iT, j] = tempVal;                            
+                            arr[iT, j] = tempVal;
                         }
                         temporaryValue.Value = avgArr[i];
                         tempVal = avgArr[iT];
                         avgArr[iT] = avgArr[i];
                         avgArr[i] = tempVal;
                     }
-                }                    
-            }            
+                }
+            }
             return arr;
         }
         //Исправлялся при тестировании
@@ -108,7 +102,7 @@ namespace CreatingArray
             double[] avgArr = FindArrayAvgOfRows(arr);
             double tempVal;
             for (int iT = 0; iT < arr.GetLength(0) - 1; iT++)
-            {                
+            {
                 for (int i = iT + 1; i < arr.GetLength(0); i++)
                 {
                     if (avgArr[iT] > avgArr[i])
@@ -116,7 +110,7 @@ namespace CreatingArray
                         for (int j = 0; j < avgArr.Length; j++)
                         {
                             tempVal = arr[i, j];
-                            arr[i, j] = arr[iT, j]; 
+                            arr[i, j] = arr[iT, j];
                             arr[iT, j] = tempVal;
                         }
                         tempVal = avgArr[iT];
@@ -124,7 +118,7 @@ namespace CreatingArray
                         avgArr[i] = tempVal;
                     }
                 }
-            }            
+            }
             return arr;
         }
     }

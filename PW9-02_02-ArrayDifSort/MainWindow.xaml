@@ -19,14 +19,15 @@
                 <MenuItem x:Name="SecondWaySortToUpElements" Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений" Click="SecondWaySortToUpElements_Click"/>
                 <MenuItem x:Name="SecondWaySortToUpRowsOnAvg" Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк" Click="SecondWaySortToUpRowsOnAvg_Click"/>
             </MenuItem>
+            <MenuItem x:Name="Help" Header="Справка" Click="Help_Click"/>
         </Menu>
         <TabControl>
-            <TabItem Header="Таблица">
+            <TabItem x:Name="TableTab" Header="Таблица">
                 <GroupBox Header="Двумерный массив">
                     <DataGrid x:Name="VisualArrayTable"/>
                 </GroupBox>
             </TabItem>
-            <TabItem Header="Управление">
+            <TabItem x:Name="ControlTab" Header="Управление">
                 <StackPanel>
                     <GroupBox Header="Создание">
                         <StackPanel>

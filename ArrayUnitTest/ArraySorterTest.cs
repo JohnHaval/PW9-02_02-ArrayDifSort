@@ -1,6 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CreatingArray;
-using System.Diagnostics;
+﻿using CreatingArray;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ArrayUnitTest
 {
@@ -19,7 +18,7 @@ namespace ArrayUnitTest
         public void TestSecondWayElementsSort()
         {
             var sortArr = ArrayCreator.CreateArray(5, 5, new ArrayCreator.Range(1, 15));
-            TraceTransfer.ToTrace(sortArr);            
+            TraceTransfer.ToTrace(sortArr);
             sortArr = ArraySorter.SecondWaySortToUpRowElements(sortArr);
             TraceTransfer.ToTrace(sortArr);
         }

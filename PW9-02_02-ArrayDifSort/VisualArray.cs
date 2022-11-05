@@ -4,7 +4,7 @@ using System.Data;
 namespace PW9_02_02_ArrayDifSort
 {
     public class VisualArray
-    {        
+    {
         public DataTable CurrentTable { get; private set; } = new DataTable();
         public DataTable CreateTable(double[,] arr)
         {
@@ -33,7 +33,7 @@ namespace PW9_02_02_ArrayDifSort
                 for (int j = 0; j < CurrentTable.Columns.Count; j++)
                 {
                     arr[i, j] = Convert.ToDouble(row[j]);
-                }                
+                }
             }
             return arr;
         }
@@ -42,9 +42,9 @@ namespace PW9_02_02_ArrayDifSort
             var row = CurrentTable.Rows[i];//ПРОВЕРИТЬ АКТУАЛЬНОСТЬ РАБОТЫ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             row[j] = value;
         }
-        public DataTable ClearTable()
+        public void ClearTable()
         {
-            return CurrentTable = new DataTable();
+            CurrentTable = new DataTable();
         }
     }
 }
