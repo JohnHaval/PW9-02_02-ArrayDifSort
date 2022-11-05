@@ -1,6 +1,7 @@
 ﻿using CreatingArray;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace PW9_02_02_ArrayDifSort
 {
@@ -116,6 +117,22 @@ namespace PW9_02_02_ArrayDifSort
                 "арифметического элементов строк. " +
                 "Реализовать сортировку разными способами и сравнить эффективность этих способов для разных исходных данных.", 
                 "Справка", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+        string CurrentCell = "";
+        private void VisualArrayTable_BeginningEdit(object sender, System.Windows.Controls.DataGridBeginningEditEventArgs e)
+        {
+            int iRow = e.Row.GetIndex();
+            int iColumn = e.Column.DisplayIndex;
+            CurrentCell = MainArrayTable.GetArray()[iRow, iColumn].ToString();
+        }
+
+        private void VisualArrayTable_CellEditEnding(object sender, System.Windows.Controls.DataGridCellEditEndingEventArgs e)
+        {
+            if (!double.TryParse(((TextBox)e.EditingElement).Text, out _))
+            {
+                ((TextBox)e.EditingElement).Text = CurrentCell; 
+                e.Cancel = true;
+            }
         }
     }
 }

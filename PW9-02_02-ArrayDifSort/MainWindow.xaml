@@ -24,7 +24,7 @@
         <TabControl>
             <TabItem x:Name="TableTab" Header="Таблица">
                 <GroupBox Header="Двумерный массив">
-                    <DataGrid x:Name="VisualArrayTable"/>
+                    <DataGrid x:Name="VisualArrayTable" CanUserAddRows="False" BeginningEdit="VisualArrayTable_BeginningEdit" CellEditEnding="VisualArrayTable_CellEditEnding"/>
                 </GroupBox>
             </TabItem>
             <TabItem x:Name="ControlTab" Header="Управление">
