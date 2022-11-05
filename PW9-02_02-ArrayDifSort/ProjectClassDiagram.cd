@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="PW9_02_02_ArrayDifSort.App">
-    <Position X="7.5" Y="4.25" Width="1.5" />
+    <Position X="4" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App.xaml.cs</FileName>
@@ -10,7 +10,7 @@
   <Class Name="PW9_02_02_ArrayDifSort.MainWindow" BaseTypeListCollapsed="true">
     <Position X="4" Y="0.5" Width="5.25" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAIAAAABECAgAAAAAAAAAEAAAAAAABCQAAAAA=</HashCode>
+      <HashCode>AIADAAAAIAAAABECAgAAAAAAAAAEQAAAAAABCQAAAAA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -35,7 +35,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CreatingArray.ArrayCreator">
-    <Position X="3.5" Y="4" Width="3.5" />
+    <Position X="3.5" Y="4.75" Width="3.5" />
     <NestedTypes>
       <Struct Name="CreatingArray.ArrayCreator.Range" Collapsed="true">
         <TypeIdentifier />
@@ -44,7 +44,7 @@
     <TypeIdentifier />
   </Class>
   <Class Name="CreatingArray.ArraySorter">
-    <Position X="3.5" Y="6" Width="4.5" />
+    <Position X="7.25" Y="4.75" Width="4.5" />
     <NestedTypes>
       <Struct Name="CreatingArray.ArraySorter.TemporaryValue" Collapsed="true">
         <TypeIdentifier />
