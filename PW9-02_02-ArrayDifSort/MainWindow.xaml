@@ -5,22 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PW9_02_02_ArrayDifSort"
         mc:Ignorable="d"
-        Title="Сортировка массива" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
+        Title="Сортировка массива" MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen" FontSize="14">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Создать"/>
-            <MenuItem Header="Заполнить"/>
+            <MenuItem x:Name="CreateArrayTable" Header="Создать" Click="CreateArrayTable_Click"/>
+            <MenuItem x:Name="FillArrayTable" Header="Заполнить" Click="FillArrayTable_Click"/>
+            <MenuItem x:Name="ClearTable" Header="Очистить" Click="ClearTable_Click"/>
             <MenuItem Header="Сортировка (1 способ)">
-                <MenuItem Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений"/>
-                <MenuItem Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк"/>
+                <MenuItem x:Name="FirstWaySortToUpElements" Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений" Click="FirstWaySortToUpElements_Click"/>
+                <MenuItem x:Name="FirstWaySortToUpRowsOnAvg" Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк" Click="FirstWaySortToUpRowsOnAvg_Click"/>
             </MenuItem>
             <MenuItem Header="Сортировка (2 способ)">
-                <MenuItem Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений"/>
-                <MenuItem Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк"/>
+                <MenuItem x:Name="SecondWaySortToUpElements" Header="Элементы по возрастанию" ToolTip="Отсортировать элементы строк массива по возрастанию их значений" Click="SecondWaySortToUpElements_Click"/>
+                <MenuItem x:Name="SecondWaySortToUpRowsOnAvg" Header="Строки по возрастанию среднего" ToolTip="Отсортировать строки массива по возрастанию среднего арифметического элементов строк" Click="SecondWaySortToUpRowsOnAvg_Click"/>
             </MenuItem>
         </Menu>
-        <GroupBox Header="Двумерный массив">
-            <DataGrid x:Name="DataGridArray"/>
-        </GroupBox>
+        <TabControl>
+            <TabItem Header="Таблица">
+                <GroupBox Header="Двумерный массив">
+                    <DataGrid x:Name="VisualArrayTable"/>
+                </GroupBox>
+            </TabItem>
+            <TabItem Header="Управление">
+                <StackPanel>
+                    <GroupBox Header="Создание">
+                        <StackPanel>
+                            <Label Content="Строки:"/>
+                            <TextBox x:Name="RowCount" Margin="3" MaxLength="2"/>
+                            <Label Content="Столбцы:"/>
+                            <TextBox x:Name="ColumnCount" Margin="3" MaxLength="2"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Заполнение">
+                        <StackPanel>
+                            <Label Content="Диапазон"/>
+                            <Separator/>
+                            <Label Content="от:"/>
+                            <TextBox x:Name="FirstValue" Margin="3" MaxLength="5"/>
+                            <Label Content="до:"/>
+                            <TextBox x:Name="SecondValue" Margin="3" MaxLength="5"/>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </Window>

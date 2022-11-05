@@ -1,9 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 namespace PW9_02_02_ArrayDifSort
 {
     public class VisualArray
-    {
+    {        
         public DataTable CurrentTable { get; private set; } = new DataTable();
         public DataTable CreateTable(double[,] arr)
         {
@@ -23,14 +24,27 @@ namespace PW9_02_02_ArrayDifSort
             }
             return CurrentTable;
         }
+        public double[,] GetArray()
+        {
+            var arr = new double[CurrentTable.Rows.Count, CurrentTable.Columns.Count];
+            for (int i = 0; i < CurrentTable.Rows.Count; i++)
+            {
+                var row = CurrentTable.Rows[i];
+                for (int j = 0; j < CurrentTable.Columns.Count; j++)
+                {
+                    arr[i, j] = Convert.ToDouble(row[j]);
+                }                
+            }
+            return arr;
+        }
         public void EditCell(int i, int j, double value)
         {
             var row = CurrentTable.Rows[i];//ПРОВЕРИТЬ АКТУАЛЬНОСТЬ РАБОТЫ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             row[j] = value;
         }
-        public void ClearTable()
+        public DataTable ClearTable()
         {
-            CurrentTable = new DataTable();
+            return CurrentTable = new DataTable();
         }
     }
 }

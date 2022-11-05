@@ -48,5 +48,17 @@ namespace CreatingArray
             }
             return arr;
         }
+        public static double[,] FillArray(double[,] arr, Range range)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    arr[i, j] = rnd.Next(range.FirstValue, range.SecondValue);
+                }
+            }
+            return arr;
+        }
     }
 }

@@ -95,5 +95,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CreatingArray\CreatingArray.csproj">
+      <Project>{78c9b0a1-11fb-4975-9c47-d165a1dd7fbd}</Project>
+      <Name>CreatingArray</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
